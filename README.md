@@ -7,7 +7,7 @@ This repository contains code implementing Physics-Informed Neural Networks (PIN
 Physics-Informed Neural Networks (PINNs) offer a powerful framework for solving forward and inverse problems involving partial differential equations (PDEs). This code implements two approaches:
 
 1. **Original Implementation**: PINN for solving inverse problems with constant parameters: diffusion coefficient, advection velocity, reaction constant) (```ad_PINN.ipynb```).
-2. **Extended Implementation**: Recovery of spatially varying parameters ($u(x)$) and ($D(x)$) using separate neural networks (```ad_inverse_PINN_varying.py```).
+2. **Extended Implementation**: Recovery of spatially varying parameters ($$u(x)$$) and ($$D(x)$$) using separate neural networks (```ad_inverse_PINN_varying.py```).
 
 ## Mathematical Formulation
 
@@ -49,46 +49,46 @@ where:
 
 ## Original Implementation: Constant Parameters
 
-The original code (`original_pinn.py`) recovers constant parameters (diffusion coefficient \(D\), advection velocity \(u\), and reaction constant \(\sigma\)) from concentration data.
+The original code (`original_pinn.py`) recovers constant parameters diffusion coefficient $$D$$, advection velocity ($$u$$), and reaction constant ($$\sigma$$) from concentration data.
 
 ### Key Features
 
-- **Single neural network** for concentration field \(c(x,t)\)
-- **Trainable parameters**: \(D\), \(u\), \(\sigma\) (can be fixed or trained)
+- **Single neural network** for concentration field ($$c(x,t)$$)
+- **Trainable parameters**: ($$D$$), \($$u$$), ($$\sigma$$) (can be fixed or trained)
 - **Adaptive loss weighting** for parameter training
 - **Multiple learning rate schedules** (piecewise constant, exponential, polynomial)
 
 ### Loss Function Components
 
 The total loss is a weighted sum of:
-- **PDE residual**: \(\| \beta_0 c_t + (u c)_x - (D c_x)_x - R(c) \|^2\)
-- **Data fitting**: \(\| c_{\text{model}} - c_{\text{data}} \|^2\)
-- **Initial condition**: \(\| c(x,0) - c_0(x) \|^2\)
-- **Boundary condition**: \(\| \text{flux}(0) \|^2 + \| \text{flux}(1) \|^2\)
+- **PDE residual**: ($$| \beta_0 c_t + (u c)_x - (D c_x)_x - R(c)|^2$$)
+- **Data fitting**: ($$| c_{\text{model}} - c_{\text{data}}|^2$$)
+- **Initial condition**: ($$| c(x,0) - c_0(x) |^2$$)
+- **Boundary condition**: ($$| \text{flux}(0) |^2 + | \text{flux}(1) |^2$$)
 
 ## Extended Implementation: Spatially Varying Parameters
 
-The extended code (`spatially_varying_pinn.py`) recovers spatially varying profiles \(u(x)\) and \(D(x)\) using separate neural networks.
+The extended code (`spatially_varying_pinn.py`) recovers spatially varying profiles ($$u(x)$$) and ($$D(x)$$) using separate neural networks.
 
 ### Key Innovations
 
 - **Three neural networks**:
-  1. **Concentration network**: \(c(x,t)\)
-  2. **Velocity network**: \(u(x)\)
-  3. **Diffusion network**: \(D(x)\)
+  1. **Concentration network**: ($$c(x,t)$$)
+  2. **Velocity network**: ($$u(x)$$)
+  3. **Diffusion network**: ($$D(x)$$)
 
 - **Two-phase training strategy**:
-  1. **Phase 1** (2000 epochs): Train only the concentration network to fit data (freeze u/D networks)
+  1. **Phase 1** (2000 epochs): Train only the concentration network to fit data (freeze $$u$$/$$D$$ networks)
   2. **Phase 2** (5000 epochs): Joint training with all networks
 
-- **Smoothness regularization**: \(\| \nabla u \|^2 + \| \nabla D \|^2\) to prevent overfitting
-- **Anchor loss**: Regularizes the mean values of \(u(x)\) and \(D(x)\) to known means
+- **Smoothness regularization**: $$(\| \nabla u \|^2 + \| \nabla D \|^2)$$ to prevent overfitting
+- **Anchor loss**: Regularizes the mean values of $$(u(x))$$ and $$(D(x))$$ to known means
 
 ### Loss Function (Extended)
 
 Additional loss components:
-- **Smoothness regularization**: \(\| \partial u/\partial x \|^2 + \| \partial D/\partial x \|^2\)
-- **Anchor loss**: \(\| \langle u \rangle - \bar{u}_{\text{true}} \|^2 + \| \langle D \rangle - \bar{D}_{\text{true}} \|^2\)
+- **Smoothness regularization**: ($$\| \partial u/\partial x \|^2 + \| \partial D/\partial x \|^2$$)
+- **Anchor loss**: ($$\| \langle u \rangle - \bar{u}_{\text{true}} \|^2 + \| \langle D \rangle - \bar{D}_{\text{true}} \|^2$$)
 
 ## Citation
 
