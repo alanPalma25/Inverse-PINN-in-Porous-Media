@@ -88,7 +88,7 @@ The extended code (`spatially_varying_pinn.py`) recovers spatially varying profi
 
 Additional loss components:
 - **Smoothness regularization**: ($$\| \partial u/\partial x \|^2 + \| \partial D/\partial x \|^2$$)
-- **Anchor loss**: ($$\| \langle u \rangle - \bar{u}_{\text{true}} \|^2 + \| \langle D \rangle - \bar{D}_{\text{true}} \|^2$$)
+- **Anchor loss**: ($$| \langle u \rangle - \bar{u}_{\text{true}} |^2 + | \langle D \rangle - \bar{D}_{\text{true}}|^2$$)
 
 ## Citation
 
@@ -117,4 +117,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 1. Raissi, M., Perdikaris, P., & Karniadakis, G. E. (2019). Physics-informed neural networks: A deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations. Journal of Computational Physics, 378, 686-707.
 2. Berardi, M., et al. (2023). Inverse Physics-Informed Neural Networks for transport models in porous materials.
 3. Wang, S., et al. (2021). When and why PINNs fail to train: A neural tangent kernel perspective. Journal of Computational Physics, 449, 110768.
-```
