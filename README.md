@@ -30,17 +30,9 @@ where:
 
 - No-flux boundary conditions at both ends:
   
-  $$
+  ```math
   \left. \left(u c - D \frac{\partial c}{\partial x}\right)\right|_{x=0} = 0, \quad \left. \left(u c - D \frac{\partial c}{\partial x}\right)\right|_{x=1} = 0
-  $$
-
-### Reaction Models
-
-Several reaction models are implemented:
-- **Michaelis-Menten**: \(R(c) = \sigma \frac{c^{n_f}}{\sigma_2 + c^{n_b}}\)
-- **Linear**: \(R(c) = \sigma c\)
-- **Quadratic**: \(R(c) = \sigma c^2\)
-- **Polynomial**: \(R(c) = \sigma c^{n_f}(1-c)^{n_b}\)
+  ```  
 
 ## Repository Structure
 
