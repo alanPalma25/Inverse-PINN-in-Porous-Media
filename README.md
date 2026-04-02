@@ -20,11 +20,11 @@ $$
 $$
 
 where:
-- ($\c(x,t)$): concentration
-- ($\beta_0$): porosity (constant)
-- ($\u(x)$): advection velocity
-- ($\D(x)$): diffusion coefficient
-- ($\R(c)$): reaction term
+- ($$c(x,t)$$): concentration
+- ($$\beta_0$$): porosity (constant)
+- ($$u(x)$$): advection velocity
+- ($$D(x)$$): diffusion coefficient
+- ($$R(c)$$): reaction term
 
 ### Boundary Conditions
 
