@@ -20,15 +20,16 @@ $$
 $$
 
 where:
-- \(c(x,t)\): concentration
-- \(\beta_0\): porosity (constant)
-- \(u(x)\): advection velocity
-- \(D(x)\): diffusion coefficient
-- \(R(c)\): reaction term
+- ($c(x,t)$): concentration
+- ($\beta_0$): porosity (constant)
+- ($u(x)$): advection velocity
+- ($D(x)$): diffusion coefficient
+- ($R(c)$): reaction term
 
 ### Boundary Conditions
 
 - No-flux boundary conditions at both ends:
+  
   $$
   \left. \left(u c - D \frac{\partial c}{\partial x}\right)\right|_{x=0} = 0, \quad \left. \left(u c - D \frac{\partial c}{\partial x}\right)\right|_{x=1} = 0
   $$
