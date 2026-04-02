@@ -15,9 +15,9 @@ Physics-Informed Neural Networks (PINNs) offer a powerful framework for solving 
 
 The code solves the advection-diffusion-reaction equation:
 
-\[
+$
 \beta_0 \frac{\partial c}{\partial t} + \frac{\partial}{\partial x}(u c) - \frac{\partial}{\partial x}\left(D \frac{\partial c}{\partial x}\right) = R(c)
-\]
+$
 
 where:
 - \(c(x,t)\): concentration
