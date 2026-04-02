@@ -7,7 +7,7 @@ This repository contains code implementing Physics-Informed Neural Networks (PIN
 Physics-Informed Neural Networks (PINNs) offer a powerful framework for solving forward and inverse problems involving partial differential equations (PDEs). This code implements two approaches:
 
 1. **Original Implementation**: PINN for solving inverse problems with constant parameters: diffusion coefficient, advection velocity, reaction constant) (```ad_PINN.ipynb```).
-2. **Extended Implementation**: Recovery of spatially varying parameters \(u(x)\) and \(D(x)\) using separate neural networks (```ad_inverse_PINN_varying.py```).
+2. **Extended Implementation**: Recovery of spatially varying parameters ($u(x)$) and ($D(x)$) using separate neural networks (```ad_inverse_PINN_varying.py```).
 
 ## Mathematical Formulation
 
@@ -15,9 +15,9 @@ Physics-Informed Neural Networks (PINNs) offer a powerful framework for solving 
 
 The code solves the advection-diffusion-reaction equation:
 
-$
+$$
 \beta_0 \frac{\partial c}{\partial t} + \frac{\partial}{\partial x}(u c) - \frac{\partial}{\partial x}\left(D \frac{\partial c}{\partial x}\right) = R(c)
-$
+$$
 
 where:
 - \(c(x,t)\): concentration
@@ -29,9 +29,9 @@ where:
 ### Boundary Conditions
 
 - No-flux boundary conditions at both ends:
-  \[
+  $$
   \left. \left(u c - D \frac{\partial c}{\partial x}\right)\right|_{x=0} = 0, \quad \left. \left(u c - D \frac{\partial c}{\partial x}\right)\right|_{x=1} = 0
-  \]
+  $$
 
 ### Reaction Models
 
